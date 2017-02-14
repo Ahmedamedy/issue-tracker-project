@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <title>Issue Tracker</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='jumbotron.css') }}" />
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url_for('home')}}">Issue Tracker</a>
+        </div>
+          <div id="navbar" class="navbar-collapse collapse">
+		  <form class="navbar-form navbar-right" action="{{url_for('logout')}}">
+            <button type="submit" class="btn btn-success">Logout</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+	
+	<div class="col-lg-6">
+      <form class="form-signin" action="{{url_for('newissue')}}" method="POST">
+        <h2 class="form-signin-heading">Log Complain</h2>
+        <input type="name" name="name" class="form-control" placeholder="Title" required autofocus>
+        <textarea class="form-control" name="description" rows="3" placeholder="Description" required autofocus></textarea>
+		<select class="form-control" name="priority">
+			<option value="Medium">Medium</option>
+			<option value="High">High</option>
+			<option value="Critical">Critical</option>
+		</select>
+		<select class="form-control" name="department">
+			<option value="IT">IT</option>
+			<option value="Finance">Finance</option>
+		</select>
+		</br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+      </form>
+	</div>
+    </div> <!-- /container -->
+	</body>
+</html>

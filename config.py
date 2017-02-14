@@ -18,31 +18,35 @@ def home():
     return render_template('home.html', items=items)
 
 
-@app.route('/user/new', methods=['GET','POST'])
-def newuser():
+@app.route('/user/signup', methods=['GET','POST'])
+def signup():
     if request.method == 'POST':
         newuser = Users(username=request.form['name'], password=request.form['password'], email=request.form['email'])
         sessions.add(newuser)
         sessions.commit()
         return redirect(url_for('home'))
     else:
-        return render_template('newuser.html')
+        return render_template('signup.html')
 
 @app.route('/user/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        session['Username'] = request.form['name']
-        user = sessions.query(Users).filter_by(username =request.form['name'], password=request.form['password']).one()
-        session['id'] = user.id
-        return redirect(url_for('issues'))
+            if sessions.query(Users).filter_by(username =request.form['name'], password=request.form['password']).count() < 1:
+                flash("Wrong Username or Password")
+                return redirect(url_for('login'))
+            else:
+                session['username'] = request.form['name']
+                user = sessions.query(Users).filter_by(username =request.form['name'], password=request.form['password']).one()
+                session['id'] = user.id
+                return redirect(url_for('issues'))
     else:
-        return render_template('login.html')
+        return render_template('home.html')
 		
 
 @app.route('/issues')
 def issues():
-    if 'Username' in session:
-        username = session['Username']
+    if 'username' in session:
+        username = session['username']
         items = sessions.query(Issues).all()
         return render_template('issues.html', items=items)
     else:
@@ -59,7 +63,7 @@ def logout():
 def newissue():
     if request.method == 'POST':
         user_id = session['id']
-        newuser = Issues(name=request.form['name'], description = request.form['description'], user_id= user_id)
+        newuser = Issues(name=request.form['name'], description = request.form['description'], priority = request.form['priority'], department = request.form['department'],  assignned = False, opened = False, resolved = False,user_id= user_id)
         sessions.add(newuser)
         sessions.commit()
         return redirect(url_for('issues'))
