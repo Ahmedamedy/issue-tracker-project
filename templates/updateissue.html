@@ -1,0 +1,27 @@
+<html>
+	<body>
+		<div>
+			<a href="{{url_for('adminlogout')}}">Log Out</a>
+        </div>
+		<h1>Update Issue</h1>
+		<form action="{{ url_for('updateissue', item_id=item_id)}}" method='post'>
+		<p>Name</p>
+		<input	name='name' size='30'	type='text' placeholder='{{i.name}}'>
+		<p>Description</p>
+		<input	name='name' size='30'	type='text' placeholder='{{i.description}}'>
+		<p>Priority</p>
+		<input	name='name' size='30'	type='text' placeholder='{{i.priority}}'>
+		<p>Update Progress</p>
+		<select name="resolved">
+			<option value="Not in progress">Not in progress</option>
+			<option value="In progress">In progress</option>
+			<option value="Completed">Resolved</option>
+		</select>   
+		<p>
+		<input	type='submit'	value='Update'>
+		</p>
+		</form> 
+        
+        </div>
+	</body>
+</html>

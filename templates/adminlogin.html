@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Admin</p>
+        <form action="{{url_for('adminlogin')}}" method="POST">
+            <p><input type="text" class="form-control"  name="username" placeholder="Name"></p>
+            <p><input type="password" class="form-control" name="password" placeholder="Password"></p>
+			<p><input type="designation" class="form-control" name="designation" placeholder="Designation"></p>
+			<p><input type="submit" class="form-control" value="Submit" placeholder="Password"></p>
+        </form>        
+  </body>
+</html>

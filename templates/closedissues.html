@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+		<div>
+			<a href="{{url_for('adminlogout')}}">Log Out</a>
+        </div>
+		<div>
+			<a href="{{url_for('openedissues')}}">Opened Issues</a>
+        </div>
+		<div>
+			<a href="{{url_for('closedissues')}}">Closed Issues</a>
+        </div>
+		{{user.department}}
+		<div>
+             <h2>My Department Tickets</h2>
+                {% for i in items %}
+                <div >
+                    <h3>Ticket #: IS0{{i.id}}</h2> <h5>{{i.name}}</h5>
+                        <p>{{i.description}}</p>
+						<p>{{i.priority}}</p>
+						<p>{{i.assignned}}</p>
+						<p>{{i.resolved}}</p>
+						<p>{{i.opened}}</p>
+						<a href="{{url_for('assignissue', item_id = i.id)}}">Assign</a>
+						<a href="{{url_for('updateissue', item_id = i.id)}}">Update Progress</a>
+                </div>    
+                {% endfor %}
+        </div>
+		
+		<div>
+             <h2>My Department Personel</h2>
+                {% for i in personel %}
+                <div >
+                    <h3>{{i.username}}</h5>
+                </div>    
+                {% endfor %}
+        </div>
+  </body>
+</html>

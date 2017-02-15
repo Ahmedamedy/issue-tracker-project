@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+		<div>
+			<a href="{{url_for('adminlogout')}}">Log Out</a>
+        </div>
+
+		<div>
+             <h2>My Department Tickets</h2>
+                {% for i in items %}
+                <div >
+                    <h3>Ticket #: IS0{{i.id}}</h2> <h5>{{i.name}}</h5>
+                        <p>{{i.description}}</p>
+						<p>{{i.priority}}</p>
+						<p>{{i.assignned}}</p>
+						<p>{{i.resolved}}</p>
+						<p>{{i.opened}}</p>
+						<a href="{{url_for('staffupdateissue', item_id = i.id)}}">Update Progress</a>
+                </div>    
+                {% endfor %}
+        </div>
+		
+  </body>
+</html>
