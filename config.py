@@ -24,9 +24,9 @@ def signup():
         newuser = Users(username=request.form['name'], password=request.form['password'], email=request.form['email'])
         sessions.add(newuser)
         sessions.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
     else:
-        return render_template('signup.html')
+        return render_template('sign.html')
 
 @app.route('/user/login', methods=['GET','POST'])
 def login():
@@ -40,14 +40,15 @@ def login():
                 session['id'] = user.id
                 return redirect(url_for('issues'))
     else:
-        return render_template('home.html')
+        return render_template('sign.html')
 		
 
 @app.route('/issues')
 def issues():
     if 'username' in session:
         username = session['username']
-        items = sessions.query(Issues).all()
+	id = session['id']
+        items = sessions.query(Issues).filter_by(user_id=id)
         return render_template('issues.html', items=items)
     else:
         return redirect(url_for('home'))
@@ -56,7 +57,7 @@ def issues():
 @app.route('/user/logout')
 def logout():
    session.pop('username', None)
-   return redirect(url_for('login'))
+   return redirect(url_for('home'))
             
 		
 @app.route('/issue/new', methods=['GET','POST'])

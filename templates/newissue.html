@@ -1,51 +1,104 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
+    <meta charset="utf-8">
     <title>Issue Tracker</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}" />
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='jumbotron.css') }}" />
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"  />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   </head>
-
   <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{url_for('home')}}">Issue Tracker</a>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" ><i class="ion-ios-eye-outline"></i> Issue Tracker</a>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav navbar-right">
+					<li>
+                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="{{url_for('logout')}}">Log Out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-          <div id="navbar" class="navbar-collapse collapse">
-		  <form class="navbar-form navbar-right" action="{{url_for('logout')}}">
-            <button type="submit" class="btn btn-success">Logout</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
     </nav>
-
-    <div class="container">
-	
-	<div class="col-lg-6">
-      <form class="form-signin" action="{{url_for('newissue')}}" method="POST">
-        <h2 class="form-signin-heading">Log Complain</h2>
-        <input type="name" name="name" class="form-control" placeholder="Title" required autofocus>
-        <textarea class="form-control" name="description" rows="3" placeholder="Description" required autofocus></textarea>
-		<select class="form-control" name="priority">
-			<option value="Medium">Medium</option>
-			<option value="High">High</option>
-			<option value="Critical">Critical</option>
-		</select>
-		<select class="form-control" name="department">
-			<option value="IT">IT</option>
-			<option value="Finance">Finance</option>
-		</select>
-		</br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-      </form>
-	</div>
-    </div> <!-- /container -->
-	</body>
+    
+	<section id="last">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="margin-top-0 wow fadeIn">Log Complain</h2>
+                    <hr class="primary">
+                    <p>Talk to us and have your issues sorted ASAP.</p>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <form class="contact-form row">
+                        <div class="col-md-4">
+                            <label></label>
+                            <input type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                        <div class="col-md-4">
+                            <label></label>
+                            <input type="text" class="form-control" name="department" placeholder="Department">
+                        </div>
+                        <div class="col-md-4">
+                            <label></label>
+                            <input type="text" class="form-control" name="priority" placeholder="Priority">
+                        </div>
+                        <div class="col-md-12">
+                            <label></label>
+                            <textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <label></label>
+                            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 column">
+                    <h4>Information</h4>
+                    
+                </div>
+                <div class="col-xs-6 col-sm-3 column">
+                    
+                </div>
+                <div class="col-xs-12 col-sm-3 column">
+                    
+                </div>
+                <div class="col-xs-12 col-sm-3 text-right">
+                    <h4>Follow</h4>
+                    <ul class="list-inline">
+                      <li><a rel="nofollow" href="" title="Twitter"><i class="icon-lg ion-social-twitter-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Facebook"><i class="icon-lg ion-social-facebook-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Dribble"><i class="icon-lg ion-social-dribbble-outline"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <br/>
+           <span class="pull-right text-muted small"><a href="http://www.bootstrapzero.com">Issue Tracker by Ahmed Yusuf</a> ©2017 Andela Cohort XV</span>
+        </div>
+    </footer>
+   
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/wow.js"></script>
+    <script src="static/js/scripts.js"></script>
+  </body>
 </html>

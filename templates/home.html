@@ -1,84 +1,162 @@
-<html lang="en">
+<html>
   <head>
+    <meta charset="utf-8">
     <title>Issue Tracker</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}" />
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='jumbotron.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"  />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   </head>
-
   <body>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-eye-outline"></i> Issue Tracker</a>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll" href="#one">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#two">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#three">Services</a>
+                    </li>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Issue Tracker</a>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="{{url_for('login')}}" method="POST">
-            <div class="form-group">
-              <input type="text" name='name' placeholder="username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" name='password' placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Having Issues!</h1>
-        <p>Log a complain and have it sorted ASAP..</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}" role="button">Sign Up &raquo;</a></p>
-      </div>
-    </div>
-		
-			   <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Log Complain</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    <header id="one">
+        <div class="header-content">
+            <div class="inner">
+                <h1 class="cursive">Any Complains?</h1>
+                <h4>Log a task and have it resolved ASAP!</h4>
+                <hr>
+                <a href="{{url_for('login')}}" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">Sign Up or Sign In</a> 
+            </div>
         </div>
-        <div class="col-md-4">
-          <h2>Receive Updates</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Have it Sorted</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </header>
+    <section class="bg-primary" id="two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-primary">Issue Tracker</h2>
+                    <br>
+                    <p class="text-faded">
+                        Log your issue and have it worked on ASAP while you receive feedback on the progress
+                    </p>
+                    <a href="#three" class="btn btn-default btn-xl page-scroll">Sign Up Now</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+    <section id="three">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Services</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Tracking</h3>
+                        <p class="text-muted">Be able to track your issue</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-social-sass wow fadeInUp" data-wow-delay=".2s"></i>
+                        <h3>Updates</h3>
+                        <p class="text-muted">Receive updates on progress</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="feature">
+                        <i class="icon-lg ion-ios-star-outline wow fadeIn" data-wow-delay=".3s"></i>
+                        <h3>Notification</h3>
+                        <p class="text-muted">Get notification on </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+   <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2 class="text-primary">Get Started</h2>
+                <a href="http://www.bootstrapzero.com/bootstrap-template/landing-zero" target="ext" class="btn btn-default btn-lg wow flipInX">Free Download</a>
+            </div>
+            <br>
+            <hr/>
+            <br>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="row">
+                        <h6 class="wide-space text-center">BOOTSTRAP IS BASED ON THESE STANDARDS</h6>
+                        <div class="col-sm-3 col-xs-6 text-center">
+                            <i class="icon-lg ion-social-html5-outline" title="html 5"></i>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 text-center">
+                            <i class="icon-lg ion-social-sass" title="sass"></i>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 text-center">
+                            <i class="icon-lg ion-social-javascript-outline" title="javascript"></i>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 text-center">
+                            <i class="icon-lg ion-social-css3-outline" title="css 3"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <footer id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 column">
+         
+                </div>
+                <div class="col-xs-6 col-sm-3 column">
+             
+                </div>
+                <div class="col-xs-12 col-sm-3 column">
+                  
+                </div>
+                <div class="col-xs-12 col-sm-3 text-right">
+                    <h4>Follow</h4>
+                    <ul class="list-inline">
+                      <li><a rel="nofollow" href="" title="Twitter"><i class="icon-lg ion-social-twitter-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Facebook"><i class="icon-lg ion-social-facebook-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Dribble"><i class="icon-lg ion-social-dribbble-outline"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <br/>
+            <span class="pull-right text-muted small"><a href="http://www.bootstrapzero.com">Issue Tracker by Ahmed Yusuf</a> ©2017 Andela Cohort XV</span>
+        </div>
+    </footer>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="statc/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/wow.js"></script>
+    <script src="static/js/scripts.js"></script>
   </body>
-</html>
-
-</body>
 </html>
