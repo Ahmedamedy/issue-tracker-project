@@ -19,3 +19,8 @@ The user should be able to
 # Requirements
 pip instal Flask
 pip install flask-sqlalchemy
+
+# Test Case
+user: Username ='username', Password ='passowrd'
+admin: Username ='p.rewe', Password ='itadmin'
+staf: Username ='r.rama', Password ='itpersonel1'
