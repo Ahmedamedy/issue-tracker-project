@@ -6,6 +6,7 @@ The user should be able to
 <li>As a user, I should be able to sign-in / sign-up</li>
 <li>As a user, I should be able to raise an issue and give the following details:</li>
 </ul>
+<ul>
 <li>Issue description Priority (low, medium, high)</li>
 <li>Department (tag the department that is to handle that issue i.e. Operations, Finance, Training, Recruitment, Success, Sales, Marketing)</li>
 <li>Every department has an admin that will be notified once an issue is raised concerning their department. The admin in turn assigns the issue to someone who is supposed to resolve it.</li>
