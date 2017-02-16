@@ -15,7 +15,17 @@
     <a href="../../index2.html"><b>Issue</b>Tracker</a>
   </div>
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">
+		{% with messages = get_flashed_messages()%}
+			{% if messages %}
+			<ul>
+					{% for message in messages %}
+					<li>{{message}}<strong></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		{% endwith %}
+	</p>
 
     <form action="{{url_for('stafflogin')}}" method="POST">
       <div class="form-group has-feedback">

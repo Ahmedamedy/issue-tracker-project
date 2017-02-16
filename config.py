@@ -67,6 +67,7 @@ def newissue():
         newuser = Issues(name=request.form['name'], description = request.form['description'], priority = request.form['priority'], department = request.form['department'],  assignned = False, opened = False, resolved = False,user_id= user_id)
         sessions.add(newuser)
         sessions.commit()
+	flash("Issue Reported")
         return redirect(url_for('issues'))
     else:
         return render_template('newissue.html')	
@@ -156,7 +157,7 @@ def commentissue(item_id):
         editeditem.adminremarks = remarks
         sessions.add(editeditem)
         sessions.commit()
-        flash("item updated")
+        flash("Comment Added")
         username = session['username']
         user_id = session['id']
 	user = sessions.query(CompanyUsers).filter_by(id = user_id).one()
@@ -181,7 +182,7 @@ def assignissue(item_id):
         editeditem.assignned = assignned
         sessions.add(editeditem)
         sessions.commit()
-        flash("item updated")
+        flash("Issue Assigned")
         username = session['username']
         user_id = session['id']
 	user = sessions.query(CompanyUsers).filter_by(id = user_id).one()
@@ -207,7 +208,7 @@ def updateissue(item_id):
         editeditem.resolved = resolved
         sessions.add(editeditem)
         sessions.commit()
-        flash("item updated")
+        flash("Issue updated")
         username = session['username']
         user_id = session['id']
 	user = sessions.query(CompanyUsers).filter_by(id = user_id).one()
@@ -268,7 +269,7 @@ def staffupdateissue(item_id):
         editeditem.remarks = comments
         sessions.add(editeditem)
         sessions.commit()
-        flash("item updated")
+        flash("Issue Updated")
         username = session['username']
         user_id = session['id']
 	user = sessions.query(CompanyUsers).filter_by(id = user_id).one()

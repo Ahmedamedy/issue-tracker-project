@@ -61,7 +61,17 @@
     <section class="content-header">
       <h1>
         Issues Tables
-        <small>view complains</small>
+        <small>
+				{% with messages = get_flashed_messages()%}
+			{% if messages %}
+			<ul>
+					{% for message in messages %}
+					<li>{{message}}<strong></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		{% endwith %}
+		</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
