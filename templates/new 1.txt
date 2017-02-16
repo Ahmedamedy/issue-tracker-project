@@ -1,0 +1,7 @@
+Test
+CSS
+Naming
+Base
+Git ignore files
+*.pyc
+CDN

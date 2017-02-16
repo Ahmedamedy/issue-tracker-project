@@ -16,8 +16,8 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
-    color: #d3d3d3;
+    background-color: #dcd9d9;
+    color: #9c27b0;
     webkit-tap-highlight-color: #222;
 }
 
@@ -66,11 +66,11 @@ p {
 }
 
 .bg-primary {
-    background-color: #333;
+    background-color: #efecec;
 }
 
 .bg-dark {
-    color: #eee;
+    color: #353131;
     background-color: #222;
 }
 
@@ -80,7 +80,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(245,245,245,0.7);
+    color: #480e52;
 }
 
 .text-dark {
@@ -114,7 +114,7 @@ footer {
 .navbar-default {
     border-color: rgba(35,35,35,.05);
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #222;
+    background-color: #c0c0c0;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s;
@@ -478,7 +478,7 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn.btn-primary {
-    background-color: transparent;
+    background-color: #999;
     border:1px solid #f0f0f0;
     border-color:#f0f0f0;
     -webkit-transition: all .35s;
@@ -510,7 +510,7 @@ fieldset[disabled] .btn-default.active {
 ::selection {
     text-shadow: none;
     color: #fff;
-    background: #222;
+    background: #c0c0c0;
 }
 
 img::selection {

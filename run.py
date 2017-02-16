@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db_setup import Base, Issues, Users, CompanyUsers
+from model import Base, Issues, Users, CompanyUsers
 
 engine = create_engine('sqlite:///issue-tracker.db')
 
