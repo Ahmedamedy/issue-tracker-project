@@ -54,7 +54,7 @@
                     <h2 class="margin-top-0 text-primary">Issue Tracker</h2>
                     <br>
                     <p class="text-faded">
-                        Log your issue and have it worked on ASAP while you receive feedback on the progress
+                        Don't get stuck. Log your issue and have it resolved ASAP as you receive realtime feedback on the progress
                     </p>
                     <a href="#three" class="btn btn-default btn-xl page-scroll">Sign Up Now</a>
                 </div>
@@ -74,21 +74,21 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
-                        <i class="icon-lg ion-android-laptop wow fadeIn" data-wow-delay=".3s"></i>
+                        <i class="icon-lg ion-ios-analytics-outline" data-wow-delay=".3s"></i>
                         <h3>Tracking</h3>
                         <p class="text-muted">Be able to track your issue</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
-                        <i class="icon-lg ion-social-sass wow fadeInUp" data-wow-delay=".2s"></i>
+                        <i class="icon-lg ion-help-circled wow fadeInUp" data-wow-delay=".2s"></i>
                         <h3>Updates</h3>
                         <p class="text-muted">Receive updates on progress</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="feature">
-                        <i class="icon-lg ion-ios-star-outline wow fadeIn" data-wow-delay=".3s"></i>
+                        <i class="icon-lg ion-android-textsms wow fadeIn" data-wow-delay=".3s"></i>
                         <h3>Notification</h3>
                         <p class="text-muted">Get notification on </p>
                     </div>
@@ -97,36 +97,7 @@
         </div>
     </section>
    
-   <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2 class="text-primary">Get Started</h2>
-                <a href="http://www.bootstrapzero.com/bootstrap-template/landing-zero" target="ext" class="btn btn-default btn-lg wow flipInX">Free Download</a>
-            </div>
-            <br>
-            <hr/>
-            <br>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="row">
-                        <h6 class="wide-space text-center">BOOTSTRAP IS BASED ON THESE STANDARDS</h6>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-html5-outline" title="html 5"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-sass" title="sass"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-javascript-outline" title="javascript"></i>
-                        </div>
-                        <div class="col-sm-3 col-xs-6 text-center">
-                            <i class="icon-lg ion-social-css3-outline" title="css 3"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
+
 
     <footer id="footer">
         <div class="container-fluid">
@@ -138,7 +109,10 @@
              
                 </div>
                 <div class="col-xs-12 col-sm-3 column">
-                  
+                 <h3><a href="{{url_for('stafflogin')}}">Staff Login</a></h3> 
+				 <ul class="list-inline">
+					<li><a rel="nofollow" href="" title="{{url_for('stafflogin')}}"><i class="icon-lg ion-log-in"></i></a>&nbsp;</li>
+				 </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 text-right">
                     <h4>Follow</h4>

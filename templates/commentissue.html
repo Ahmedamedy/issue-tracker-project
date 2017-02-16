@@ -49,99 +49,67 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li><a href="{{url_for('highissues')}}"><i class="fa fa-circle-o text-red"></i> <span>High Piority Issues</span></a></li>
-        <li><a href="{{url_for('criticalissues')}}"><i class="fa fa-circle-o text-yellow"></i> <span>Critical Priority Issues</span></a></li>
-        <li><a href="{{url_for('openedissues')}}"><i class="fa fa-circle-o text-aqua"></i> <span>Opened Issues</span></a></li>
-		<li><a href="{{url_for('closedissues')}}"><i class="fa fa-circle-o text-aqua"></i> <span>Closed Issues</span></a></li>
+		<li><a href="{{url_for('adminissues')}}"><i class="fa fa-circle-o text-aqua"></i> <span>All Issues</span></a></li>
 		<li><a href="{{url_for('stafflogout')}}"><i class="fa fa-circle-o text-aqua"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Issues Tables
-        <small>view complains</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Simple</li>
-      </ol>
-    </section>
+    
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-12">
-          <div class="box">
-           
-            <!-- /.box-body -->
-          
-          </div>
-          <!-- /.box -->
+        
+        <div class="col-md-9">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Issue Tracker</h3>
 
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">All Issues Raised</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
-              <table class="table table-condensed">
-                <tr>
-                  <th>Ticket No</th>
-                  <th>Name</th>
-                  <th>Prioriy</th>
-				  <th>Assigned</th>
-                  <th>Progress</th>
-				  <th>Tasks</th>
-                </tr>
-				{% for i in items %}
-                <tr>
-                  <td>ISO{{i.id}}</td>
-                  <td>{{i.name}}</td>
-                  <td>{{i.priority}}</td>
-				  <td>{{i.assignned}}</td>
-                  <td>{{i.resolved}}</td>
-				  <td><a href="{{url_for('assignissue', item_id = i.id)}}"><span class="label label-primary" >Assign</span></a> &nbsp <a href="{{url_for('updateissue', item_id = i.id)}}"><span class="label label-primary">Update</span></a> &nbsp  <a href="{{url_for('commentissue', item_id = i.id)}}"> <span class="label label-primary">Comment</span></a></td>
-                </tr>
-				{% endfor %}
-              </table>
+              <div class="mailbox-read-info">
+			  <form action="{{ url_for('updateissue', item_id=item_id)}}" method='post'>
+                <h3>ISO{{i.id}}</h3>
+                <h5>{{i.name}}</h5>
+              </div>
+              <!-- /.mailbox-read-info -->
+              </div>
+              <!-- /.mailbox-controls -->
+              <div class="mailbox-read-message">
+                
+                <p>{{i.description}}</p>
+
+              </div>
+				
+				<div class="mailbox-read-info">
+				<h4>Comment</h4>
+				<select name="resolved" class="form-control select2" style="width: 100%;">
+					<option value="Not in Progress">Not in Progress</option>
+					<option value="In Progress">In Progress</option>
+					<option value="Completed">Completed</option>
+				</select>
+				
+				
+              </div>
+			  <!-- /.mailbox-read-message -->
             </div>
-            <!-- /.box-body -->
+            <div class="box-footer">
+             <button type="submit" class="btn btn-default"><i class="fa fa-save"></i> Update </button>
+            </div>
+			</form>
+            <!-- /.box-footer -->
           </div>
-          <!-- /.box -->
+          <!-- /. box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-6">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">{{personel.department}} Personel</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <table class="table">
-                <tr>
-                  <th>Username</th>
-                  <th>Tasks</th>
-                </tr>
-				{% for i in personel%}
-                <tr>
-                  <td>{{i.username}}</td>
-                  <td>Tasks</td>
-                </tr>
-                {% endfor %}
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>

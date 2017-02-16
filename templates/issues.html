@@ -69,26 +69,33 @@
                     <p>Talk to us and have your issues sorted ASAP.</p>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row">
+                    <form class="contact-form row" action="{{url_for('newissue')}}" method="POST" >
                         <div class="col-md-4">
                             <label></label>
                             <input type="text" class="form-control" name="name" placeholder="Name">
                         </div>
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" name="department" placeholder="Department">
+							<select class="form-control" name="department">
+                            <option value="IT">IT</option>
+							<option value="Finance">Finance</option>
+							</select>
                         </div>
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" name="priority" placeholder="Priority">
+                            <select class="form-control" name="priority">
+                            <option value="Medium">Medium</option>
+							<option value="High">High</option>
+							<option value="Critical">Critical</option>
+							</select>
                         </div>
                         <div class="col-md-12">
                             <label></label>
-                            <textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
+                            <textarea class="form-control" rows="9" name="description" placeholder="Your message here.."></textarea>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <label></label>
-                            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+                            <button type="submit"  class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
                         </div>
                     </form>
                 </div>

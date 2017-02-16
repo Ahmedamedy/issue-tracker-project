@@ -1,41 +1,177 @@
-<!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <body>
-		<div>
-			<a href="{{url_for('adminlogout')}}">Log Out</a>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Issue Tracker Admin | Log in</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/AdminLTE.min.css') }}"  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css//_all-skins.min.css') }}"  />
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <a href="../../index2.html" class="logo">
+      <span class="logo-mini"><b>IS</b>T</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Issue</b>Tracker</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          
         </div>
-		<div>
-			<a href="{{url_for('openedissues')}}">Opened Issues</a>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>High</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Critical</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Opened</span></a></li>
+		<li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Closed</span></a></li>
+		<li><a href="#"><i class="{{url_for('stafflogout')}}"></i> <span>Logout</span></a></li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Issues Tables
+        <small>view complains</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Simple</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+           
+            <!-- /.box-body -->
+          
+          </div>
+          <!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">All Issues Raised</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-condensed">
+                <tr>
+                  <th>Ticket No</th>
+                  <th>Name</th>
+                  <th>Prioriy</th>
+				  <th>Assigned</th>
+                  <th>Progress</th>
+				  <th>Tasks</th>
+                </tr>
+				{% for i in items %}
+                <tr>
+                  <td>ISO{{i.id}}</td>
+                  <td>{{i.name}}</td>
+                  <td>{{i.priority}}</td>
+				  <td>{{i.assignned}}</td>
+                  <td>{{i.resolved}}</td>
+				  <td><a href="{{url_for('assignissue', item_id = i.id)}}"><span class="label label-primary" >Assign</span></a> &nbsp <a href="{{url_for('updateissue', item_id = i.id)}}"><span class="label label-primary">Update</span></a> &nbsp <span class="label label-primary">Comment</span></td>
+                </tr>
+				{% endfor %}
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-		<div>
-			<a href="{{url_for('closedissues')}}">Closed Issues</a>
-        </div>
-		{{user.department}}
-		<div>
-             <h2>My Department Tickets</h2>
-                {% for i in items %}
-                <div >
-                    <h3>Ticket #: IS0{{i.id}}</h2> <h5>{{i.name}}</h5>
-                        <p>{{i.description}}</p>
-						<p>{{i.priority}}</p>
-						<p>{{i.assignned}}</p>
-						<p>{{i.resolved}}</p>
-						<p>{{i.opened}}</p>
-						<a href="{{url_for('assignissue', item_id = i.id)}}">Assign</a>
-						<a href="{{url_for('updateissue', item_id = i.id)}}">Update Progress</a>
-                </div>    
+        <!-- /.col -->
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">{{personel.department}} Personel</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th>Username</th>
+                  <th>Tasks</th>
+                </tr>
+				{% for i in personel%}
+                <tr>
+                  <td>{{i.username}}</td>
+                  <td>Tasks</td>
+                </tr>
                 {% endfor %}
-        </div>
-		
-		<div>
-             <h2>My Department Personel</h2>
-                {% for i in personel %}
-                <div >
-                    <h3>{{i.username}}</h5>
-                </div>    
-                {% endfor %}
-        </div>
-  </body>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.8
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+</body>
 </html>
