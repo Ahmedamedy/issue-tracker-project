@@ -22,5 +22,5 @@ pip install flask-sqlalchemy
 
 # Test Case
 user: Username ='username', Password ='passowrd'
-admin: Username ='p.rewe', Password ='itadmin'
-staf: Username ='r.rama', Password ='itpersonel1'
+<br>admin: Username ='p.rewe', Password ='itadmin'
+<br>staf: Username ='r.rama', Password ='itpersonel1'
