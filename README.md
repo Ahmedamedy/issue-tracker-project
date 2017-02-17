@@ -17,8 +17,7 @@ The user should be able to
 </ul>
 
 # Requirements
-pip instal Flask
-pip install flask-sqlalchemy
+pip instal requirements.txt
 
 # Test Case
 user: Username ='username', Password ='passowrd'
