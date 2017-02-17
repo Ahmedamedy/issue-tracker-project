@@ -287,5 +287,5 @@ def staffupdateissue(item_id):
 
 if __name__ == '__main__':
     app.secret_key = "secret_key"
-    app.debug = True
-    app.run(host ='https://shrouded-caverns-95420.herokuapp.com/')
+	port = int(os.environ.get('PORT', 5000))
+	app.run(host='0.0.0.0', port=port, debug=True)
